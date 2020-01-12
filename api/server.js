@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Delivery = require('./app/models/delivery');
+var handler = require('./app/helpers/errorHandler');
 mongoose.Promise = global.Promise;
 
 //URI: Local
@@ -27,18 +28,14 @@ router.route('/deliveries').post(function(req, res) {
     var delivery = new Delivery(req.body);
 
     delivery.save(function(error) {
-        if(error)
-            res.json(error);
-
+        if(error) return handler(res, error);
         res.status(201);
-        res.json(delivery);
+        return res.json(delivery);
     });
 }).get(function(req, res) {
     Delivery.find(function(error, deliveries) {
-        if(error)
-            res.json(error);
-
-        res.json(deliveries);
+        if(error) return handler(res, error);
+        return res.json(deliveries);
     });
 });
 //Rotas que terminarem com '/deliveries/:delivery_id' (servir: DELETE)
@@ -46,11 +43,9 @@ router.route('/deliveries/:delivery_id').delete(function(req, res) {
     Delivery.deleteOne({
         _id: req.params.delivery_id
         }, function(error) {
-            if (error) 
-                res.json(error);
-
+            if(error) return handler(res, error);
             res.status(204);
-            res.json({message: 'Delivery Excluído com Sucesso!' });
+            return res.json({message: 'Delivery Excluído com Sucesso!' });
         });
     }
 );
