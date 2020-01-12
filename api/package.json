@@ -1,7 +1,7 @@
 {
   "name": "routeasy-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "App para controlar um delivery",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,10 +10,14 @@
   "dependencies": {
     "body-parser": "~1.18.1",
     "express": "^4.17.1",
-    "mongoose": "~4.11.12",
+    "mongoose": "^5.8.7",
     "nodemon": "^2.0.2",
     "request": "~2.82.0"
   },
   "author": "Marcos Porto",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maporto/delivery/tree/master/api"
+  }
 }

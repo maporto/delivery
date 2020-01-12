@@ -7,7 +7,8 @@ mongoose.Promise = global.Promise;
 
 //URI: Local
 mongoose.connect('mongodb://localhost:27017/routeasy', {
-    useMongoClient: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 });
 
 //Configuração da variável app para usar o 'bodyParser()':
@@ -42,7 +43,7 @@ router.route('/deliveries').post(function(req, res) {
 });
 //Rotas que terminarem com '/deliveries/:delivery_id' (servir: DELETE)
 router.route('/deliveries/:delivery_id').delete(function(req, res) {
-    Delivery.remove({
+    Delivery.deleteOne({
         _id: req.params.delivery_id
         }, function(error) {
             if (error) 
