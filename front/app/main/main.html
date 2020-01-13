@@ -1,0 +1,30 @@
+<div flex layout="row">
+    <div flex=30 layout="column">
+        <md-card>
+            <md-card-content flex>
+                <cliente-form cliente="cliente" submit="salvar"></cliente-form>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <md-card-content flex layout="column">
+                <md-button type="button" class="md-warn md-raised" ng-click="resetarCliente()">
+                    Resetar Cadastro
+                </md-button>
+            </md-card-content>
+        </md-card>
+    </div>
+    <div flex layout="column">
+        <md-card>
+            <md-card-content flex layout="column">
+                <leaflet lf-center="center" width="100%" height="480px" markers="markers"></leaflet>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <md-card-content flex layout="column">
+                <deliveries-table deliveries="deliveries"></deliveries-table>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>
+
+<!-- <geocoder data-city="city" data-placeholder="placeholder"></geocoder> -->

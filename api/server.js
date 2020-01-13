@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Delivery = require('./app/models/delivery');
 var handler = require('./app/helpers/errorHandler');
+var cors = require('cors')
 mongoose.Promise = global.Promise;
 
 //URI: Local
@@ -15,6 +16,7 @@ mongoose.connect('mongodb://localhost:27017/routeasy', {
 //Configuração da variável app para usar o 'bodyParser()':
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors())
 
 //Definindo a porta onde será executada a nossa api:
 var port = process.env.port || 8000;
@@ -34,6 +36,11 @@ router.route('/deliveries').post(function(req, res) {
     });
 }).get(function(req, res) {
     Delivery.find(function(error, deliveries) {
+        if(error) return handler(res, error);
+        return res.json(deliveries);
+    });
+}).delete(function(req, res) {
+    Delivery.deleteMany({}, function(error, deliveries) {
         if(error) return handler(res, error);
         return res.json(deliveries);
     });

@@ -1,0 +1,26 @@
+<md-table-container>
+    <table md-table>
+        <thead md-head>
+            <tr md-row>
+                <th md-column>Nome</th>
+                <th md-column>Rua</th>
+                <th md-column>Cidade</th>
+                <th md-column>País</th>
+                <th md-column>Peso</th>
+                <th md-column>Lat</th>
+                <th md-column>Lng</th>
+            </tr>
+        </thead>
+        <tbody md-body>
+            <tr md-row ng-repeat="delivery in $ctrl.deliveries">
+                <td md-cell>{{delivery.cliente}}</td>
+                <td md-cell>{{delivery.endereco.logradouro}}</td>
+                <td md-cell>{{delivery.endereco.cidade}}</td>
+                <td md-cell>{{delivery.endereco.pais}}</td>
+                <td md-cell>{{delivery.peso}}</td>
+                <td md-cell>{{delivery.endereco.geolocalizacao[0]}}</td>
+                <td md-cell>{{delivery.endereco.geolocalizacao[1]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</md-table-container>

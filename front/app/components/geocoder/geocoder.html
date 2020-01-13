@@ -1,0 +1,11 @@
+<div>
+    <md-autocomplete md-selected-item="$ctrl.selectedItem" md-search-text="$ctrl.searchText"
+        md-selected-item-change="select_item($index)" md-items="item in $ctrl.get_results($ctrl.searchText)"
+        md-item-text="item.formatted_address" md-min-length="0" md-escape-options="clear" md-delay="1000">
+        <md-item-template>
+            <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">
+                {{ item.formatted_address }}
+            </span>
+        </md-item-template>
+    </md-autocomplete>
+</div>

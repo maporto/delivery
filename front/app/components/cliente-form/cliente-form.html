@@ -1,0 +1,41 @@
+<form name="clienteForm" ng-submit="$ctrl.submitForm($ctrl.cliente)" flex layout="column">
+    <md-input-container>
+        <label>Nome Cliente</label>
+        <input name="nome" type="text" ng-model="$ctrl.cliente.cliente" required>
+    </md-input-container>
+    <md-input-container>
+        <label>Peso Entrega (KG)</label>
+        <input name="peso" type="number" ng-model="$ctrl.cliente.peso" required min="0">
+    </md-input-container>
+    <md-autocomplete flex
+        md-selected-item="$ctrl.selectedItem"
+        md-search-text="$ctrl.searchText"
+        md-selected-item-change="$ctrl.enderecoSelecionado(item)"
+        md-items="item in $ctrl.query($ctrl.searchText)"
+        md-item-text="item.formatted_address"
+        md-min-length="0"
+        md-delay="1000"
+        md-require-match
+        md-floating-label="Endereço Cliente"
+        md-input-name="endereco"
+        md-input-minlength="3"
+        required>
+        <md-item-template>
+            <md-icon>location</md-icon>
+            <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">
+                {{ item.formatted_address }}
+            </span>
+        </md-item-template>
+    </md-autocomplete>
+    <div flex layout="row">
+        <md-input-container>
+            <label>Latitude</label>
+            <input name="latitude" type="text" ng-value="$ctrl.cliente.endereco.geolocalizacao[0]" disabled>
+        </md-input-container>
+        <md-input-container>
+            <label>Longitude</label>
+            <input name="longitude" type="text" ng-value="$ctrl.cliente.endereco.geolocalizacao[1]" disabled>
+        </md-input-container>
+    </div>
+    <md-button type="submit" class="md-primary md-raised">Cadastrar Cliente</md-button>
+</form>

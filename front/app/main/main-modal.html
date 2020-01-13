@@ -1,0 +1,76 @@
+<md-dialog aria-label="Formulário Curso">
+  <form name="alunoForm" ng-cloak ng-submit="salvar(aluno)">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Formulário Curso</h2>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content" layout="column">
+        <md-input-container>
+          <label>Nome</label>
+          <input type="text" ng-model="aluno.nome">
+        </md-input-container>
+        <md-input-container>
+          <label>CPF</label>
+          <input type="text" ng-model="aluno.cpf">
+        </md-input-container>
+        <md-input-container>
+          <label>Email</label>
+          <input type="email" ng-model="aluno.email">
+        </md-input-container>
+        <md-input-container>
+          <label>celular</label>
+          <input type="text" ng-model="aluno.celular">
+        </md-input-container>
+        <md-input-container>
+          <label>Data de Nascimento</label>
+          <input type="date" ng-model="aluno.dataNascimento">
+        </md-input-container>
+        <md-input-container>
+          <label>Endereço</label>
+          <input type="text" ng-model="aluno.endereco">
+        </md-input-container>
+        <md-input-container>
+          <label>Numero</label>
+          <input type="number" ng-model="aluno.numero">
+        </md-input-container>
+        <md-input-container>
+            <label>Estado</label>
+            <md-select ng-model="aluno.estado" ng-change="estadoChange(aluno.estado)" ng-model-options="{ trackBy: '$value.id' }">
+                <md-option ng-repeat="estado in estados" ng-value="estado">
+                    {{estado.nome}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container>
+            <label>Cidade</label>
+            <md-select ng-model="aluno.cidade" ng-model-options="{ trackBy: '$value.id' }">
+                <md-option ng-repeat="cidade in cidades" ng-value="cidade">
+                    {{cidade.nome}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container>
+            <label>Bairro</label>
+            <md-select ng-model="aluno.bairro" ng-model-options="{ trackBy: '$value.id' }">
+                <md-option ng-repeat="bairro in bairros" ng-value="bairro">
+                    {{bairro.nome}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button type="submit" class="md-primary">
+        Salvar
+      </md-button>
+      <md-button type="button" ng-click="cancelar()">
+        Cancelar
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
