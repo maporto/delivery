@@ -55,7 +55,7 @@ angular.module('myApp.main', ['ngRoute'])
 
     $scope.resetarCliente = function () {
       Restangular.all('deliveries').remove().then(function () {
-        $scope.deliveries = [];
+        atualizaLista();
         toaster("Clientes Resetados com sucesso!");
       });
     };
