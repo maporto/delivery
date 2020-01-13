@@ -7,7 +7,7 @@ var handler = require('./app/helpers/errorHandler');
 var cors = require('cors')
 mongoose.Promise = global.Promise;
 
-//URI: Local
+//URI: Local (CONFIGURAR BASE MONGO)
 mongoose.connect('mongodb://localhost:27017/routeasy', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
