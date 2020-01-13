@@ -2,12 +2,20 @@
 
 ## Instalar dependecias na api e no front
 
-### npm install
+* npm install
 
-## Configurar a base mongodb no inicio do arquivo api/server.js
+## Configurar a conexão com a base mongodb
 
-## Adicionar a key do google geocode em front/app/index.html
+* no inicio do arquivo api/server.js
+* esta como 'mongodb://localhost:27017/routeasy'
 
-## Startar os servidores do front e da api, ambos com npm start em suas raizes
+## Adicionar a key do google geocode
 
-### npm start
+* no inicio do arquivo front/app/index.html
+* esta como <script async defer src="https://maps.googleapis.com/maps/api/js?key="
+
+## Startar os servidores do front e da api
+
+* ambos com npm start em suas raizes
+* front/ -> npm start
+* api/ -> npm start
