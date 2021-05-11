@@ -18,7 +18,7 @@
     "angular-route": "^1.7.9",
     "angular-ui-mask": "^1.8.7",
     "html5-boilerplate": "0.0.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "restangular": "^1.6.1",
     "ui-leaflet": "^1.0.3"
   },
